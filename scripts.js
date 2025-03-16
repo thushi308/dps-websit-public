@@ -1,5 +1,5 @@
 
-const sections = document.querySelectorAll(".section");
+/*const sections = document.querySelectorAll(".section");
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -12,7 +12,7 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(section => {
     observer.observe(section);
-});
+});*/
 function vantaBackground() {
     const header_background = VANTA.WAVES({
         el: "#header",
