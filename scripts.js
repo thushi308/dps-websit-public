@@ -1,4 +1,3 @@
-
 /*const sections = document.querySelectorAll(".section");
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -13,6 +12,17 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });*/
+
+const menu_button = document.getElementsByClassName('menu-button')[0];
+const menu_screen = document.getElementsByTagName('nav')[0];
+
+menu_button.addEventListener("click", () => {
+	menu_button.classList.toggle('menu-active');
+    let root = document.querySelector(":root");
+    root.style.setProperty("--menu-style-top", `${document.getElementsByTagName("header")[0].clientHeight + menu_button.clientHeight}px`);
+	menu_screen.classList.toggle('menu-onscreen');
+});
+
 function vantaBackground() {
     const header_background = VANTA.WAVES({
         el: "#header",

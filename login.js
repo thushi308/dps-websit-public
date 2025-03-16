@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     vantaBackground();
+    generateQR();
 });
 
 const apps_script_url = "";
@@ -10,6 +11,8 @@ const password = form['password'];
 
 function process_response_data(response_data) {
     if (response_data.result === "success") {
+        Cookies.set("data", response_data, {expires: 6/24, path: ""});
+        generateQR(data);
         alert(response_data.result + "\n" + response_data.data);
     } else if (response_data.result === "unsuccess") {
         alert(response_data.result + "\n" + response_data.data);
@@ -42,3 +45,23 @@ form.addEventListener("submit", (e) => {
         body: body
     }).then(response => response.text()).then(response_data => process_response_data(JSON.parse(response_data))).catch(error => console.error(error));
 });
+
+function generateQR (data = Cookies.get("data")) {
+    const qr = document.getElementById("qr");
+    const login = document.getElementsByTagName("form")[0];
+    const title = document.querySelector("#login h2");
+    if (data) {
+        const qrURL = qrcode(5, "L");
+        qrURL.addData(data);
+        qrURL.make();
+        qr.innerHTML = qrURL.createImgTag(4, 8, "qrcode");
+        login.style.display = "none";
+        title.innerHTML = "QR";
+        qr.style.display = "block";
+    } else {
+        qr.style.display = "none";
+        title.innerHTML = "Login";
+        login.style.display = "flex";
+        //alert("please login");
+    }
+}

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    vantaBackground();
 
     let resizeObserver = new ResizeObserver(entries => {
         entries.forEach(entry => {
