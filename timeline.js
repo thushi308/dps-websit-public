@@ -1,7 +1,8 @@
-function addCard (time, title, content) {
+function addCard (className, time, title, content) {
     let timeline_container = document.getElementsByClassName("timeline-container")[0];
     let timeline_item = document.createElement("div");
     timeline_item.classList.add("timeline-item");
+    timeline_item.classList.add(className);
     let timeline_date = document.createElement("div");
     timeline_date.classList.add("timeline-date");
     timeline_date.innerHTML = time;
@@ -42,15 +43,16 @@ fetch(timelineFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from 
         newline_array.forEach((item) => {
             const parts = item.split(",").map((part) => part.trim()); // Split the string by commas and remove extra spaces
             const obj = {
-                time: parts[0],
-                title: parts[1],
-                content: parts[2],
+                class: parts[0],
+                time: parts[1],
+                title: parts[2],
+                content: parts[3],
             };
             result.push(obj);
         });
         //console.log(result);
         for (let i = 0; i < result.length; i++) {
-            addCard(result[i].time, result[i].title, result[i].content);
+            addCard(result[i].class, result[i].time, result[i].title, result[i].content);
         }
         //vantaBackground();
         header_background.resize();
