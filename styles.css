@@ -570,6 +570,13 @@ form button:active {
     transition-property: background, color;
     transition-duration: 0s;
 }
+.error {
+    color: #ff0000db;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 67%;
+}
 
 footer {
     position: absolute;

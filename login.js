@@ -12,47 +12,49 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const apps_script_url = "";
+const apps_script_url = "https://script.google.com/macros/s/AKfycbxyJxvPaJKAUxhadOijFce12uqxtPNqDadKPnq1DgmTrVP3lLs5aPwqDcGCzKKyUB2lnQ/exec";
 
 const form = document.forms['login_form'];
 const username = form['username'];
 const password = form['password'];
+const errorDisplay = document.getElementsByClassName("error")[0];
 
 function process_response_data(response_data) {
-    if (response_data.result === "success") {
-        Cookies.set("data", response_data, {expires: 6/24, path: ""});
+    let result = response_data.result;
+    let data = response_data.data;
+    if (result === "success") {
+        Cookies.set("data", data, {expires: 6/24, path: ""});
         generateQR(data);
-        alert(response_data.result + "\n" + response_data.data);
-    } else if (response_data.result === "unsuccess") {
-        alert(response_data.result + "\n" + response_data.data);
-    } else if (response_data.result === "bad request") {
-        alert(response_data.result + "\n" + response_data.data);
-    } else if (response_data.result === "error") {
+        errorDisplay.innerHTML = "";
+        //alert(response_data.result + "\n" + response_data.data);
+    } else if (result === "unsuccess") {
+        errorDisplay.innerHTML =  result.charAt(0).toUpperCase() + result.slice(1) + "! " + data.charAt(0).toUpperCase() + data.slice(1) + "!";
+        //alert(response_data.result + "\n" + response_data.data);
+    } else if (result === "bad request") {
+        errorDisplay.innerHTML =  result.charAt(0).toUpperCase() + result.slice(1) + "! " + data.charAt(0).toUpperCase() + data.slice(1) + "!";
+        //alert(response_data.result + "\n" + response_data.data);
+    } else if (result === "error") {
         alert(response_data.result + "\n" + response_data.data);
     } else {
-        alert("Unknown error");
+        errorDisplay.innerHTML =  "Unknown error!";
+        //alert("Unknown error");
     }
 }
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const hash_key = "vy493vut893ycn284933498d8r98qj3uqfb3y498qyc3498d9j8qy239"; ///////////////////////////////////as same as in the apps script
+    const hash_key = "asdfgh"; ///////////////////////////////////as same as in the apps script
     let password_hashed = sha256.hmac.create(hash_key).update(password.value).hex();
 
-    const body = JSON.stringify({
-        username: username.value,
-        password: password_hashed
-    });
+    url = apps_script_url + "?username=" + username.value + "&password=" + password_hashed;
 
-    fetch(apps_script_url, {
-        method: "GET",
-        mode: "cors",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: body
-    }).then(response => response.text()).then(response_data => process_response_data(JSON.parse(response_data))).catch(error => console.error(error));
+    errorDisplay.innerHTML = "Processing, please wait.";
+
+    fetch(url, {method: "GET", mode: "cors"})
+    .then(x => x.text())
+    .then((response_data) => process_response_data(JSON.parse(response_data)))
+    .catch(error => console.error(error));
 });
 
 function generateQR (data = Cookies.get("data")) {
