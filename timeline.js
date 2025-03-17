@@ -1,4 +1,4 @@
-function addCard (className, time, title, content) {
+function addCard (className, time, title, content, topic) {
     let timeline_container = document.getElementsByClassName("timeline-container")[0];
     let timeline_item = document.createElement("div");
     timeline_item.classList.add("timeline-item");
@@ -11,6 +11,11 @@ function addCard (className, time, title, content) {
     let timeline_content_title = document.createElement("h3");
     timeline_content_title.innerHTML = title;
     timeline_content.appendChild(timeline_content_title);
+    if (topic != "") {
+        let timeline_content_topic = document.createElement("p");
+        timeline_content_topic.innerHTML = topic;
+        timeline_content.appendChild(timeline_content_topic);
+    }
     if (content != "") {
         let timeline_content_content = document.createElement("p");
         timeline_content_content.innerHTML = content;
@@ -47,12 +52,13 @@ fetch(timelineFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from 
                 time: parts[1],
                 title: parts[2],
                 content: parts[3],
+                topic: parts[4],
             };
             result.push(obj);
         });
         //console.log(result);
         for (let i = 0; i < result.length; i++) {
-            addCard(result[i].class, result[i].time, result[i].title, result[i].content);
+            addCard(result[i].class, result[i].time, result[i].title, result[i].content, result[i].topic);
         }
         //vantaBackground();
         header_background.resize();

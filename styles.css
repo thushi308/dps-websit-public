@@ -94,6 +94,64 @@ header * {
 header h1 {
     font-size: var(--header-font-size);
 }
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+header img {
+    height: auto;
+    width: 110px;
+    padding: 10px;
+    backdrop-filter: blur(3px);
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: #dddddd6f;
+}
+@media only screen and (max-width: 1300px) {
+    header {
+        --header-font-size: 26px;
+        padding: 15px;
+        gap: 0px;
+    }
+    header img {
+        height: auto;
+        width: auto;
+        max-width: 70px;
+        padding: 10px;
+        backdrop-filter: blur(3px);
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: #dddddd6f;
+    }
+    header h1 {
+        --header-font-size: 26px;
+        font-size: calc(var(--header-font-size));
+    }
+}
+@media only screen and (max-width: 768px) {
+    header {
+        --header-font-size: 16px;
+        padding: 10px;
+        gap: 0px;
+    }
+    header img {
+        height: auto;
+        width: auto;
+        max-width: 70px;
+        padding: 5px;
+        backdrop-filter: blur(3px);
+        border-radius: 50%;
+        box-sizing: border-box;
+        background-color: #dddddd6f;
+    }
+    header h1 {
+        --header-font-size: 16px;
+        font-size: calc(var(--header-font-size));
+    }
+}
 
 nav {
     background: var(--section-background);
@@ -186,7 +244,7 @@ nav ul li a:hover {
     }
     nav {
         position: absolute;
-        top: -230px;
+        top: -260px;
     }
 }
 
@@ -397,7 +455,11 @@ section:nth-last-child(1 of .section) {
 .timeline-content :first-child {
     margin-top: 0;
 }
+.timeline-content :nth-child(2) {
+    font-style: italic;
+}
 .timeline-content :last-child {
+    font-style: normal;
     margin-bottom: 0;
 }
 
@@ -461,6 +523,35 @@ section:nth-last-child(1 of .section) {
     .speaker-item :nth-child(2) {
         height: 27.2px;
     }
+    #top-speaker img {
+        height: 75px;
+        width: 75px;
+    }
+}
+#top-speaker {
+    width: 100%;
+    background: var(--card-background);
+    border: var(--card-border);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 25px;
+    box-sizing: border-box;
+    margin: 0 auto 40px auto;
+    max-width: 700px;
+}
+#top-speaker img {
+    height: 120px;
+    width: 120px;
+    max-width: 120px;
+}
+#top-speaker :nth-child(2) {
+    height: auto;
+}
+#top-speaker :nth-child(2) * {
+    font-size: calc(var(--subheading-font-size) + 2px);
+}
+#top-speaker :nth-child(3) {
+    font-size: calc(var(--content-font-size) + 2px);
 }
 
 .achievement-list {
@@ -564,6 +655,18 @@ form input:hover, form textarea:hover {
 form input:focus::placeholder, form textarea:focus::placeholder {
     color: var(--primary-color);
 }
+form #show-password {
+    height: var(--content-font-size);
+    outline: none;
+    margin: 0 5px 0 0;
+}
+#login form div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
 form button {
     background: var(--primary-color);
     color: var(--primary-text-light-color);
@@ -600,6 +703,7 @@ footer {
     box-sizing: border-box;
     text-align: center;
     padding: 15px;
+    padding-bottom: 0;
     background: var(--secondary-color);
     color: var(--primary-text-light-color);
 }
@@ -608,14 +712,18 @@ footer {
     box-sizing: border-box;
 }
 .contributors {
-    position: absolute;
-    bottom: 0px;
+    position: relative;
+    top: 00px;
     right: 0px;
     padding: 3px;
     background: linear-gradient(0deg, var(--primary-color), var(--secondary-color));
     z-index: 3;
-    width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .contributors span {
     font-family: "Cooper Hewitt Light", sans-serif;

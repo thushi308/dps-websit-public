@@ -38,7 +38,7 @@ window.onscroll = function () {
         mouseControls: false,
         touchControls: false,
         gyroControls: false,
-        minHeight: 100.00,
+        minHeight: 70.00,
         minWidth: 50.00,
         scale: 1.00,
         scaleMobile: 1.00,

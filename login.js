@@ -11,13 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     generateQR();
 });
 
-
 const apps_script_url = "https://script.google.com/macros/s/AKfycbxyJxvPaJKAUxhadOijFce12uqxtPNqDadKPnq1DgmTrVP3lLs5aPwqDcGCzKKyUB2lnQ/exec";
 
 const form = document.forms['login_form'];
 const username = form['username'];
 const password = form['password'];
 const errorDisplay = document.getElementsByClassName("error")[0];
+
+function checkShowPassword(ele) {
+    if (ele.checked) {
+        password.setAttribute("type", "text");
+    } else {
+        password.setAttribute("type", "password");
+    }
+}
 
 function process_response_data(response_data) {
     let result = response_data.result;
