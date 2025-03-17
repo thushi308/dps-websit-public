@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    vantaBackground();
+    //vantaBackground();
+    let resizeObserver = new ResizeObserver(entries => {
+        entries.forEach(entry => {
+            header_background.resize();
+            overlay_background.resize();
+        });
+    });
+    let slider = document.getElementById("overlay");
+    resizeObserver.observe(slider);
     generateQR();
 });
+
 
 const apps_script_url = "";
 
@@ -64,4 +73,6 @@ function generateQR (data = Cookies.get("data")) {
         login.style.display = "flex";
         //alert("please login");
     }
+    header_background.resize();
+    overlay_background.resize();
 }

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    vantaBackground();
+    //vantaBackground();
 
     let resizeObserver = new ResizeObserver(entries => {
         entries.forEach(entry => {
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             prevEl: ".swiper-button-prev",
         },
         updateOnWindowResize: true,
+        initialSlide: 4,
         effect: "coverflow",
         coverflowEffect: {
             rotate: 0,
@@ -70,12 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let slider_container = document.getElementsByClassName("slider-container")[0];
         //let slider_container_style = window.getComputedStyle(slider_container);
         let home = document.querySelector("#home");
-        let home_style = window.getComputedStyle(home);
+        //let home_style = window.getComputedStyle(home);////////////////////////////////////////////////////
         let slider_section_style = window.getComputedStyle(document.querySelector("#slider"));
         let width = home.clientWidth - (2 * parseInt(slider_section_style.paddingLeft));
         //let width = home.clientWidth - (2 * parseInt(slider_container_style.marginLeft));
         //console.log(width - (2 * parseInt(home_style.marginLeft)) - (2 * parseInt(slider_section_style.paddingLeft)));
-        slider_container.style.width = `${width}px`;
+        //slider_container.style.width = `${width}px`;////////////////////////////////////////////////////////
         let root = document.querySelector(":root");
         let root_vars = getComputedStyle(root);
         //let slide_padding_max = parseInt(root_vars.getPropertyValue("--slide-padding-max"));
@@ -90,5 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resize_slider_container();
     resizeObserver.observe(slider);
 
-    vantaBackground();
+    //vantaBackground();
+    header_background.resize();
+    overlay_background.resize();
 });

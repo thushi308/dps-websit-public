@@ -15,15 +15,24 @@ sections.forEach(section => {
 
 const menu_button = document.getElementsByClassName('menu-button')[0];
 const menu_screen = document.getElementsByTagName('nav')[0];
+const menu_bar = document.getElementsByClassName('menu-bar')[0];
+const root = document.querySelector(":root");
 
 menu_button.addEventListener("click", () => {
+    root.style.setProperty("--menu-transition", `all 1s`);
 	menu_button.classList.toggle('menu-active');
-    let root = document.querySelector(":root");
-    root.style.setProperty("--menu-style-top", `${document.getElementsByTagName("header")[0].clientHeight + menu_button.clientHeight}px`);
+    root.style.setProperty("--menu-style-top", `${menu_bar.offsetTop + parseInt(window.getComputedStyle(menu_bar).height)}px`);
 	menu_screen.classList.toggle('menu-onscreen');
 });
 
-function vantaBackground() {
+window.onscroll = function () {
+    if (menu_screen.classList.contains("menu-onscreen")) {
+        root.style.setProperty("--menu-transition", `all 0s`);
+        root.style.setProperty("--menu-style-top", `${menu_bar.offsetTop + parseInt(window.getComputedStyle(menu_bar).height)}px`);
+    }
+}
+
+//function vantaBackground() {
     const header_background = VANTA.WAVES({
         el: "#header",
         mouseControls: false,
@@ -57,4 +66,4 @@ function vantaBackground() {
         showDots: false
     });
     //console.log("vanta");
-}
+//}

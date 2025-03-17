@@ -52,5 +52,7 @@ fetch(timelineFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from 
         for (let i = 0; i < result.length; i++) {
             addCard(result[i].time, result[i].title, result[i].content);
         }
-        vantaBackground();
+        //vantaBackground();
+        header_background.resize();
+        overlay_background.resize();
     })

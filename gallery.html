@@ -29,13 +29,20 @@
                 <li><a href="speaker.html">Speaker</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="login.html">Login</a></li>
+                <li><a href="https://physics.iiserkol.ac.in/" target="_blank">DPS Home</a></li>
             </ul>
         </nav>
 
         <section id="gallery" class="section">
-            <h2>Gallery</h2>
+            <h2>Gallery&ensp;
+                <select class="year-select" onchange="changeGallery()">
+                    <option value="2025">2025</option>
+                    <option value="2024" selected>2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </h2>
             <div class="gallery-container">   
-                <img src="assets/gallery/image01.jpg" alt="Event Image 1" class="gallery-item">
+                <!--<img src="assets/gallery/image01.jpg" alt="Event Image 1" class="gallery-item">
                 <img src="assets/gallery/image02.JPG" alt="Event Image 2" class="gallery-item">
                 <img src="assets/gallery/image03.JPG" alt="Event Image 3" class="gallery-item">
                 <img src="assets/gallery/image04.JPG" alt="Event Image 4" class="gallery-item">
@@ -44,7 +51,7 @@
                 <img src="assets/gallery/image07.JPG" alt="Event Image 7" class="gallery-item">
                 <img src="assets/gallery/image08.JPG" alt="Event Image 8" class="gallery-item">
                 <img src="assets/gallery/image09.JPG" alt="Event Image 9" class="gallery-item">
-                <img src="assets/gallery/image10.jpeg" alt="Event Image 10" class="gallery-item">
+                <img src="assets/gallery/image10.jpeg" alt="Event Image 10" class="gallery-item">-->
             </div> 
         </section>
         
@@ -57,10 +64,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.waves.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
     <script src="scripts.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            vantaBackground();
-        });
-    </script>
+    <script src="gallery.js"></script>
 </body>
 </html>
