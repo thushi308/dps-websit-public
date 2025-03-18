@@ -1,0 +1,8 @@
+assets/gallery/2023/image1.png, 2023
+assets/gallery/2023/image2.png, 2023
+assets/gallery/2023/image3.png, 2023
+assets/gallery/2023/image4.png, 2023
+assets/gallery/2023/image5.png, 2023
+assets/gallery/2023/image6.png, 2023
+assets/gallery/2023/image7.png, 2023
+assets/gallery/2023/image8.png, 2023

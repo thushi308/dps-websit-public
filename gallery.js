@@ -62,8 +62,12 @@ function addGalleryItem (image, year) {
     gallery_container.appendChild(gallery_item);
 }
 
-const galleryFilePath = "assets/gallery.txt"; // Replace with the actual path to your .txt file
+const galleryFilePathArray = ["assets/gallery2023.txt", "assets/gallery2024.txt", "assets/gallery2025.txt"]; // Replace with the actual path to your .txt file
+for (let i = 0; i < galleryFilePathArray.length; i++) {
+    fetchGalleryItems(galleryFilePathArray[i]);
+}
 
+function fetchGalleryItems (galleryFilePath) {
 // Fetch the .txt file and display its content
 fetch(galleryFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from the given path
     .then((response) => {
@@ -93,7 +97,8 @@ fetch(galleryFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from t
         for (let i = 0; i < result.length; i++) {
             addGalleryItem(result[i].image, result[i].year);
         }
+        changeGallery();
         header_background.resize();
         overlay_background.resize();
-        changeGallery();
     })
+}
