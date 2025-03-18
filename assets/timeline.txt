@@ -1,4 +1,4 @@
-ceremony, 09:30 AM, Inauguraiton, , 
+ceremony, 09:30 AM, Inauguration, , 
 session, , SESSION - 1, <strong>Chair:</strong> Dr. Bheemalingam Chittari (DPS&#44; IISER-K), 
 invited-talk, 09:45 AM, Invited Talk, Sayan Chaudhury (BS-MS 2011 batch)&#44; HRI&#44; Prayagraj (Allahabad), The Floquet central spin model: A platform to realize eternal time crystals&#44; entanglement steering&#44; and multiparameter metrology
 invited-talk, 10:15 AM, Invited Talk, Arjit Haldar (BS-MS 2011 batch)&#44; SNBNCBS&#44; Kolkata, Recent trends in condensed matter physics: Non-Fermi liquids&#44; Entanglement  and Topology
@@ -21,8 +21,9 @@ break, 03:20 PM<br>to<br>03:40 PM, Tea Break, ,
 session, , SESSION - 4, <strong>Chair:</strong> Prof. Siddhartha Lal (DPS&#44; IISER-K), 
 student-talk, 03:40 PM, PhD Student Talk, Debajyoti Guha (19RS013), Novel method to distinguish between quasiperiodicity and high periodicity
 student-talk, 03:50 PM, PhD Student Talk, Chiranjit Mahato (18RS034), Pinning of vortices by impurities in unconventional superconductors
-invited-talk, 04:00 PM, Invited Talk, Arnab Chakrabarti (PhD 2019 batch)&#44; RGU&#44; Arunachal Pradesh, Anti-Zeno purification of spin baths by quantum probe measurements
-invited-talk, 04:30 PM, Invited Talk, Debashis Saha (BS-MS 2014 batch)&#44; IISER TVM, Quantum magic boxes and how to certify them
-break, 05:00 PM<br>to<br>06:30 PM, Poster Session with High Tea, , 
+student-talk, 04:00 PM, PhD Student Talk, Beetehotra Roy (19RS047), Bound States in QED: An URG Approach
+invited-talk, 04:10 PM, Invited Talk, Arnab Chakrabarti (PhD 2019 batch)&#44; RGU&#44; Arunachal Pradesh, Anti-Zeno purification of spin baths by quantum probe measurements
+invited-talk, 04:40 PM, Invited Talk, Debashis Saha (BS-MS 2014 batch)&#44; IISER TVM, Quantum magic boxes and how to certify them
+break, 05:10 PM<br>to<br>06:30 PM, Poster Session with High Tea, , 
 ceremony, 06:30 PM, Cultural Program and Poster Awards, , 
 break, 07:30 PM, Dinner, , 

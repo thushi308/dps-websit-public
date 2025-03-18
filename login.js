@@ -26,11 +26,18 @@ function checkShowPassword(ele) {
     }
 }
 
+function logout () {
+    Cookies.remove("data", {path: ""});
+    generateQR();
+}
+
 function process_response_data(response_data) {
     let result = response_data.result;
     let data = response_data.data;
     if (result === "success") {
-        Cookies.set("data", data, {expires: 6/24, path: ""});
+        if (document.getElementById("stay-logged").checked) {
+            Cookies.set("data", data, {expires: 6/24, path: ""});
+        }
         generateQR(data);
         errorDisplay.innerHTML = "";
         //alert(response_data.result + "\n" + response_data.data);
@@ -74,13 +81,17 @@ function generateQR (data = Cookies.get("data")) {
         qrURL.make();
         qr.innerHTML = qrURL.createImgTag(4, 8, "qrcode");
         login.style.display = "none";
+        form.reset();
         title.innerHTML = "QR";
         qr.style.display = "block";
+        document.getElementById("logout").style.display = "block";
     } else {
         qr.style.display = "none";
         title.innerHTML = "Login";
+        form.reset();
         login.style.display = "flex";
         //alert("please login");
+        document.getElementById("logout").style.display = "none";
     }
     header_background.resize();
     overlay_background.resize();

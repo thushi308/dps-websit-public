@@ -104,15 +104,15 @@ header {
 header img {
     height: auto;
     width: 110px;
-    padding: 10px;
+    padding: 5px;
+    background-color: var(--secondary-color);
     backdrop-filter: blur(3px);
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: #dddddd6f;
-}
-.iiserk-logo {
     border-radius: 20%;
+    box-sizing: border-box;
 }
+/*.iiserk-logo {
+    border-radius: 20%;
+}*/
 @media only screen and (max-width: 1300px) {
     header {
         --header-font-size: 26px;
@@ -123,11 +123,11 @@ header img {
         height: auto;
         width: auto;
         max-width: 70px;
-        padding: 10px;
+        padding: 5px;
+        background-color: var(--secondary-color);
         backdrop-filter: blur(3px);
-        border-radius: 50%;
+        border-radius: 20%;
         box-sizing: border-box;
-        background-color: #dddddd6f;
     }
     header h1 {
         --header-font-size: 26px;
@@ -145,10 +145,10 @@ header img {
         width: auto;
         max-width: 70px;
         padding: 5px;
+        background-color: var(--secondary-color);
         backdrop-filter: blur(3px);
-        border-radius: 50%;
+        border-radius: 20%;
         box-sizing: border-box;
-        background-color: #dddddd6f;
     }
     header h1 {
         --header-font-size: 16px;
@@ -449,7 +449,7 @@ section:nth-last-child(1 of .section) {
     transition: var(--transition);
 }
 .timeline-item:hover {
-    transform: scale(var(--card-transition-scale));
+    transform: scale(1.02);
     margin-left: 10px;
 }
 .timeline-item.session .timeline-content {
@@ -690,7 +690,7 @@ form input:hover, form textarea:hover {
 form input:focus::placeholder, form textarea:focus::placeholder {
     color: var(--primary-color);
 }
-form #show-password {
+form #show-password, form #stay-logged {
     height: var(--content-font-size);
     outline: none;
     margin: 0 5px 0 0;
@@ -728,7 +728,17 @@ form button:active {
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    bottom: 67%;
+    top: 22%;
+}
+#logout {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+#logout:hover {
+    text-decoration: underline;
 }
 
 footer {
@@ -737,7 +747,7 @@ footer {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-    padding: 15px;
+    padding: 15px 0;
     padding-bottom: 0;
     background: var(--secondary-color);
     color: var(--primary-text-light-color);
@@ -750,7 +760,7 @@ footer {
     position: relative;
     top: 00px;
     right: 0px;
-    padding: 3px;
+    padding: 3px 5px;
     background: linear-gradient(0deg, var(--primary-color), var(--secondary-color));
     z-index: 3;
     text-align: center;
@@ -765,9 +775,22 @@ footer {
     font-size: 15px;
     word-wrap: break-word;
 }
+.contributors span a {
+    text-decoration: none;
+    font-size: 15px;
+    color: var(--primary-text-light-color);
+}
+.contributors span a:hover {
+    color: var(--secondary-text-light-color);
+}
 @media only screen and (max-width: 768px) {
     .contributors span {
         font-family: "Cooper Hewitt Light", sans-serif;
         font-size: 8px;
+    }
+    .contributors span a {
+        text-decoration: none;
+        font-size: 8px;
+        color: var(--primary-text-light-color);
     }
 }
