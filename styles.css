@@ -167,7 +167,7 @@ nav ul {
     text-align: center;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
 }
 nav ul li {
     display: inline;
@@ -382,6 +382,38 @@ section:nth-last-child(1 of .section) {
     --swiper-pagination-bullet-inactive-opacity: 0.7;
     --swiper-pagination-color: var(--secondary-color);
     transition: var(--transition);
+}
+
+.extra-container img {
+    height: 80px;
+}
+.extra-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px
+}
+.extra-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.extra-container a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: var(--subheading-font-size);
+    margin: 10px 5px;
+}
+.extra-container a:hover {
+    text-decoration: underline;
+}
+.extra-container img {
+    transition: var(--transition);
+}
+.extra-container img:hover {
+    transform: scale(var(--card-transition-scale));
 }
 
 .timeline-container::before {
@@ -708,7 +740,7 @@ footer {
     color: var(--primary-text-light-color);
 }
 .overlay {
-    padding-bottom: 90px;
+    padding-bottom: 130px;
     box-sizing: border-box;
 }
 .contributors {
@@ -728,6 +760,7 @@ footer {
 .contributors span {
     font-family: "Cooper Hewitt Light", sans-serif;
     font-size: 15px;
+    word-wrap: break-word;
 }
 @media only screen and (max-width: 768px) {
     .contributors span {
