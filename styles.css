@@ -389,6 +389,7 @@ section:nth-last-child(1 of .section) {
 
 .extra-container img {
     height: 80px;
+    border-radius: 50%;
 }
 .extra-container {
     display: flex;
@@ -782,6 +783,7 @@ footer {
 }
 .contributors span a:hover {
     color: var(--secondary-text-light-color);
+    text-decoration: underline;
 }
 @media only screen and (max-width: 768px) {
     .contributors span {
