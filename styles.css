@@ -110,6 +110,9 @@ header img {
     box-sizing: border-box;
     background-color: #dddddd6f;
 }
+.iiserk-logo {
+    border-radius: 20%;
+}
 @media only screen and (max-width: 1300px) {
     header {
         --header-font-size: 26px;
