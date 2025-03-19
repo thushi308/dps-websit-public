@@ -16,7 +16,7 @@ session, , SESSION - 3, <strong>Chair:</strong> Prof. Rumi De (DPS&#44; IISER-K)
 student-talk, 02:00 PM, PhD Student Talk, Vibhu Arora (19RS110), Electronic Structure and Carrier Doping in 2D WX2 (X =S&#44; Se and Te)
 student-talk, 02:10 PM, PhD Student Talk, Souvick Chakraborty (20RS042), Persistent Spin Texture in Janus Gold Chalcogenide Monolayers
 invited-talk, 02:20 PM, Invited Talk, Vivek Vyas (PhD 2013 batch)&#44; IIIT Vadodara, Is geometric phase unique ?
-invited-talk, 02:50 PM, Invited Talk, Aabhaas Vineet Mallit (BS-MS 2011 batch)&#44; BITS-Pilani&#44 Goa Campus, ‘Hidden’ magnetism and a mechanism for it
+invited-talk, 02:50 PM, Invited Talk, Aabhaas Vineet Mallik (BS-MS 2011 batch)&#44; BITS-Pilani&#44 Goa Campus, ‘Hidden’ magnetism and a mechanism for it
 break, 03:20 PM<br>to<br>03:40 PM, Tea Break, , 
 session, , SESSION - 4, <strong>Chair:</strong> Prof. Siddhartha Lal (DPS&#44; IISER-K), 
 student-talk, 03:40 PM, PhD Student Talk, Debajyoti Guha (19RS013), Novel method to distinguish between quasiperiodicity and high periodicity
