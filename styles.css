@@ -387,6 +387,11 @@ section:nth-last-child(1 of .section) {
     transition: var(--transition);
 }
 
+#home-banner img {
+    width: 100%;
+    border-radius: var(--section-border-radius);
+}
+
 .extra-container img {
     height: 80px;
     border-radius: 50%;
