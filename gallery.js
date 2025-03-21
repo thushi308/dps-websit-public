@@ -62,7 +62,7 @@ function addGalleryItem (image, year) {
     gallery_container.appendChild(gallery_item);
 }
 
-const galleryFilePathArray = ["assets/gallery2023.txt", "assets/gallery2024.txt", "assets/gallery2025.txt"]; // Replace with the actual path to your .txt file
+const galleryFilePathArray = ["assets/gallery2025.txt", "assets/gallery2024.txt", "assets/gallery2023.txt"]; // Replace with the actual path to your .txt file
 for (let i = 0; i < galleryFilePathArray.length; i++) {
     fetchGalleryItems(galleryFilePathArray[i]);
 }
