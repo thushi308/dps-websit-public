@@ -93,13 +93,15 @@ fetch(galleryFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from t
             };
             addGalleryItem(parts[0], parts[1]);
             result.push(obj);
-            header_background.resize();
-            overlay_background.resize();
+            //header_background.resize();
+            //overlay_background.resize();
         });
         //console.log(result);
         /*for (let i = 0; i < result.length; i++) {
             addGalleryItem(result[i].image, result[i].year);
         }*/
+        header_background.resize();
+        overlay_background.resize();
         changeGallery();
     })
 }
