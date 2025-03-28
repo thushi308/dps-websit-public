@@ -26,10 +26,9 @@ function addCard (className, time, title, content, topic) {
     timeline_container.appendChild(timeline_item);
 }
 
-const timelineFilePath = "assets/timeline.txt"; // Replace with the actual path to your .txt file
+const timelineFilePath = "assets/timeline.txt";
 
-// Fetch the .txt file and display its content
-fetch(timelineFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from the given path
+fetch(timelineFilePath, { mode: 'cors', method: 'GET' })
     .then((response) => {
         if (!response.ok) {
             throw new Error(`Error fetching file: ${response.statusText}`);
@@ -56,11 +55,9 @@ fetch(timelineFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from 
             };
             result.push(obj);
         });
-        //console.log(result);
         for (let i = 0; i < result.length; i++) {
             addCard(result[i].class, result[i].time, result[i].title, result[i].content, result[i].topic);
         }
-        //vantaBackground();
         header_background.resize();
         overlay_background.resize();
     })

@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //vantaBackground();
+let initialSlideNumber = 1;
+
+function initialize () {
 
     let resizeObserver = new ResizeObserver(entries => {
         entries.forEach(entry => {
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             prevEl: ".swiper-button-prev",
         },
         updateOnWindowResize: true,
-        initialSlide: 4,
+        initialSlide: initialSlideNumber,
         effect: "coverflow",
         coverflowEffect: {
             rotate: 0,
@@ -67,31 +68,65 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 
-    function resize_slider_container() {
-        let slider_container = document.getElementsByClassName("slider-container")[0];
-        //let slider_container_style = window.getComputedStyle(slider_container);
-        let home = document.querySelector("#home");
-        //let home_style = window.getComputedStyle(home);////////////////////////////////////////////////////
-        let slider_section_style = window.getComputedStyle(document.querySelector("#slider"));
-        let width = home.clientWidth - (2 * parseInt(slider_section_style.paddingLeft));
-        //let width = home.clientWidth - (2 * parseInt(slider_container_style.marginLeft));
-        //console.log(width - (2 * parseInt(home_style.marginLeft)) - (2 * parseInt(slider_section_style.paddingLeft)));
-        //slider_container.style.width = `${width}px`;////////////////////////////////////////////////////////
-        let root = document.querySelector(":root");
-        let root_vars = getComputedStyle(root);
-        //let slide_padding_max = parseInt(root_vars.getPropertyValue("--slide-padding-max"));
-        let slide_padding_percent = parseInt(root_vars.getPropertyValue("--slide-padding-percent"));
-        //let init_size = parseInt(root_vars.getPropertyValue("--slider-nav-button-size-max"));
-        //let size = (init_size * (width * (slide_padding_percent / 100))) / slide_padding_max;
-        //console.log(width * (slide_padding_percent / 100));
-        root.style.setProperty("--slider-nav-button-size-percent", `${width * (slide_padding_percent / 80)}px`);
-    }
-
     let slider = document.getElementById("slider");
     resize_slider_container();
     resizeObserver.observe(slider);
 
-    //vantaBackground();
     header_background.resize();
     overlay_background.resize();
-});
+}
+
+function resize_slider_container() {
+    let home = document.querySelector("#home");
+    let slider_section_style = window.getComputedStyle(document.querySelector("#slider"));
+    let width = home.clientWidth - (2 * parseInt(slider_section_style.paddingLeft));
+    let root = document.querySelector(":root");
+    let root_vars = getComputedStyle(root);
+    let slide_padding_percent = parseInt(root_vars.getPropertyValue("--slide-padding-percent"));
+    root.style.setProperty("--slider-nav-button-size-percent", `${width * (slide_padding_percent / 80)}px`);
+}
+
+const speakerFilePath = "assets/swiper.txt";
+
+fetch(speakerFilePath, { mode: 'cors', method: 'GET' })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`Error fetching file: ${response.statusText}`);
+        }
+        return response.text(); // Convert response to text
+    })
+    .then((text) => {
+        // Check if the file is empty and won't upimg if file is empty
+        if (!text.trim()) {
+            console.log("The control.txt file is empty. No cards will be created.");
+            return; // Exit if the file is empty
+        }
+        const newline_array = text.split("\n").map((item) => item.trim()); // Split the text by new line and remove extra spaces
+        const result = [];
+
+        newline_array.forEach((item) => {
+            const parts = item.split(",").map((part) => part.trim()); // Split the string by commas and remove extra spaces
+            const obj = {
+                image: parts[0],
+            };
+            result.push(obj);
+        });
+        initialSlideNumber = Math.trunc(result.length / 2)
+        for (let i = 0; i < result.length; i++) {
+            addSwiperItem(result[i].image, i + 1);
+        }
+        initialize();
+        header_background.resize();
+        overlay_background.resize();
+    })
+
+async function addSwiperItem(image, alt) {
+    let swiper_wrapper = document.getElementsByClassName("swiper-wrapper")[0];
+    let swiper_slide = document.createElement("div");
+    swiper_slide.classList.add("swiper-slide");
+    let swiper_img = document.createElement("img");
+    swiper_img.src = image;
+    swiper_img.alt = alt;
+    swiper_slide.appendChild(swiper_img);
+    swiper_wrapper.appendChild(swiper_slide);  
+}

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //vantaBackground();
     let resizeObserver = new ResizeObserver(entries => {
         entries.forEach(entry => {
             header_background.resize();
@@ -90,7 +89,6 @@ function generateQR (data = Cookies.get("data")) {
         title.innerHTML = "Login";
         form.reset();
         login.style.display = "flex";
-        //alert("please login");
         document.getElementById("logout").style.display = "none";
     }
     header_background.resize();

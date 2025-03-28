@@ -24,10 +24,9 @@ function addSpeakerItem (image, title, url, content) {
     speaker_list.appendChild(speaker_item);
 }
 
-const speakerFilePath = "assets/speaker.txt"; // Replace with the actual path to your .txt file
+const speakerFilePath = "assets/speaker.txt";
 
-// Fetch the .txt file and display its content
-fetch(speakerFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from the given path
+fetch(speakerFilePath, { mode: 'cors', method: 'GET' })
     .then((response) => {
         if (!response.ok) {
             throw new Error(`Error fetching file: ${response.statusText}`);
@@ -53,11 +52,9 @@ fetch(speakerFilePath, { mode: 'cors', method: 'GET' }) // Fetch the file from t
             };
             result.push(obj);
         });
-        //console.log(result);
         for (let i = 0; i < result.length; i++) {
             addSpeakerItem(result[i].image, result[i].title, result[i].url, result[i].content);
         }
-        //vantaBackground();
         header_background.resize();
         overlay_background.resize();
     })
