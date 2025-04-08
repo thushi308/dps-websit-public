@@ -16,7 +16,7 @@ let yearwise = {
 };
 
 let currentPage = 1;
-let photosPerPage = 6;
+let photosPerPage = 10;
 
 function displayPagination() {
     const paginations = document.getElementsByClassName("pagination");
